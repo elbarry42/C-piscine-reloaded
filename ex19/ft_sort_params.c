@@ -6,7 +6,7 @@
 /*   By: elbarry <elbarry@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 17:13:14 by elbarry           #+#    #+#             */
-/*   Updated: 2025/12/29 17:38:34 by elbarry          ###   ########.fr       */
+/*   Updated: 2025/12/30 20:06:33 by elbarry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,29 @@ int	ft_strcmp(char *s1, char *s2)
 
 void	ft_sort_params(int argc, char **argv)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	int		ind_min;
+	char	*tmp;
 
 	i = 1;
-	while (condition)
+	while (i < argc - 1)
 	{
-		/* code */
+		ind_min = i;
+		j = i + 1;
+		while (j < argc)
+		{
+			if (ft_strcmp(argv[j], argv[ind_min]) < 0)
+				ind_min = j;
+			j++;
+		}
+		tmp = argv[ind_min];
+		argv[ind_min] = argv[i];
+		argv[i] = tmp;
+		i++;
 	}
-	
 }
+
 int	main(int argc, char **argv)
 {
 	int	i;
